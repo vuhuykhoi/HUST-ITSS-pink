@@ -75,3 +75,25 @@ Provider.create!([
 		phone_number: "0912345678",
 	},
 ])
+
+Category.create!([
+	{id:1,
+		name: "Hotel",
+		description: "",
+	},
+	
+	{id:2,
+		name: "Restaurant",
+		description: "",
+	},
+	
+	{id:3,
+		name: "Supermarket",
+		description: "",
+	},
+	
+	{id:4,
+		name: "Movie Theater",
+		description: "",
+	},
+])
