@@ -63,7 +63,6 @@
                                 <%= service.end_time.strftime("%B %d, %Y") %>
                             <% end %>
                         </h5>
-                        <h2 class="text-left text-blue price-ht">USD <span class="text-yellow"><%= service.price %></span></h2>
                     </div>
                     <div class="col-xs-12 no-padding hotel-slide-pay">
                         <p class="text-blue"><%= t "cards_accepted" %></p>
@@ -74,6 +73,12 @@
                             <li><%= link_to image_tag("pay4.png", class: "img-responsive"), "#" %></li>
                         </ul>
                     </div>
+                    <div>
+                    <% if user_signed_in? %>
+                        <%= render "service_bookings/booking_form" %>
+                    <% end %>
+                    </div>
+                   
                 </div>
             </div>
         </div>
