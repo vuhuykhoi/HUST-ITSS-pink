@@ -4,6 +4,7 @@ User.create(username: "admin test", email: "admin@example.com", password: "admin
 
 User.create(username:"user test", email: "user@example.com", password: "user@123",role: "member")
 
+User.create(username:"Vu Huy Khoi", email: "vuhuykhoi1997@mail.com", password: "user@123",role: "member")
 16.times do |n|
     User.create!([
 	    {
