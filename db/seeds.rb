@@ -4,6 +4,7 @@ User.create(username: "admin test", email: "admin@example.com", password: "admin
 
 User.create(username:"user test", email: "user@example.com", password: "user@123",role: "member")
 
+User.create(username:"Vu Huy Khoi", email: "vuhuykhoi1997@mail.com", password: "user@123",role: "member")
 16.times do |n|
     User.create!([
 	    {
@@ -39,13 +40,8 @@ Category.create!([
 	},
 	
 	{id:3,
-		name: "Supermarket",
-		description: "Supermarket",
-	},
-	
-	{id:4,
-		name: "Movie Theater",
-		description: "Movie Theater",
+		name: "Entertainment",
+		description: "Entertainment",
 	},
 ])
 
@@ -92,6 +88,13 @@ providers.each do |provider|
 	                end
 	            end
 			when 3
+				places.each do |place|
+					service = Service.create!(name: Faker::Educator.course_name, description: Faker::Restaurant.description, option:"",provider_id:provider.id,category_id:category.id, place_id: place.id,price: price_rand(100,1000));
+					(1..7).to_a.shuffle.take(2).each do |i|
+			        	ServiceImage.create! link: "https://res.cloudinary.com/hedspi/image/upload/v1564448966/travel-discovery/entertainment/#{i}.jpg",
+			                       service_id: service.id
+	                end
+	            end
 			when 4
 		end
 	end

@@ -1,6 +1,6 @@
 class ServiceBookingsController < ApplicationController
     before_action :authenticate_user!
-    
+   
     def index
     end
     
@@ -18,6 +18,12 @@ class ServiceBookingsController < ApplicationController
     def create
         @booking = current_user.service_bookings.build booking_params
         @booking.save!
+        @confirm_secret_key = "booking_id:" + @booking.id.to_s + "_" + 
+                      + "user_id:" + @booking.user_id.to_s + "_" + 
+                      + "service_id:" + @booking.service_id.to_s + "_" + 
+                      + "book at:" + @booking.created_at.to_s
+        @booking.update_attributes confirm_secret_key: @confirm_secret_key
+        ConfirmBookingMailer.confirm_booking_mail(current_user,@booking).deliver
         render "confirm"
     end 
     

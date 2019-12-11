@@ -95,10 +95,11 @@ ActiveRecord::Schema.define(version: 20191127023510) do
     t.integer  "quantity"
     t.float    "unit_price"
     t.float    "total_price"
+    t.text     "confirm_secret_key"
     t.integer  "payment_method_id"
     t.integer  "booking_status_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.index ["booking_status_id"], name: "index_service_bookings_on_booking_status_id"
     t.index ["payment_method_id"], name: "index_service_bookings_on_payment_method_id"
     t.index ["service_id"], name: "index_service_bookings_on_service_id"
