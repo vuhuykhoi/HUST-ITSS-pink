@@ -8,6 +8,7 @@ class CreateServiceBookings < ActiveRecord::Migration[5.0]
       t.integer :quantity
       t.float :unit_price
       t.float :total_price
+      t.text :confirm_secret_key
       t.references :payment_method, foreign_key: true
       t.references :booking_status, foreign_key: true
       t.timestamps

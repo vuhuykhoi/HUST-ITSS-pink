@@ -22,9 +22,14 @@ class ServiceBooking < ApplicationRecord
     self.user.username
   end
   
+  def generate_qr text
+    chart = GoogleQR.new(:data => "#{text}", :size => "250x250", :margin => 4, :error_correction => "L")
+    return chart.to_s
+  end
+
   private
   def set_booking_status
     self.booking_status_id = 1
   end
-
+  
 end
